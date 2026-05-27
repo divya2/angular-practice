@@ -1,0 +1,30 @@
+.main {
+    padding: 10px;
+}
+
+.content {
+    max-width: 10px;
+    margin: 0 auto;
+}
+
+.content h1 {
+    margin: 0 0 16px 0;
+    font-size: 2rem;
+}
+
+.content p {
+    margin: 0 0 16px 0;
+    font-size: 1.2rem;
+}
+
+nav {
+    display: flex;
+    gap: 16px;
+}
+nav a {
+    text-decoration: none;
+    color: #007bff;
+}
+nav a:hover {
+    text-decoration: underline;
+}
