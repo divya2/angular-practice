@@ -12,6 +12,6 @@ export class UsersComponent {
   users = [
     { id: 1, name: 'Arun' },
     { id: 2, name: 'Divya' },
-    { id: 3, name: 'Priya' }
+    { id: 3, name: 'Laasya' }
   ];
 }
