@@ -1,10 +1,12 @@
 <h2>Products</h2>
 
-    @for (product of products; track product.id) {
+    @for (product of products(); track product.id) {
       <div>
         <h3>{{ product.name }}</h3>
         <p>Price: {{ product.price }}</p>
+        <button (click)="addToCart(product)">Add to Cart</button>
         <a [routerLink]="['/products', product.id]">View Details</a>
       </div>
     }
+    <app-cart></app-cart>
 

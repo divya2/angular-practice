@@ -1,0 +1,32 @@
+<h2>Cart</h2>
+
+@if (cartService.cartItems().length === 0) {
+  <p>Your cart is empty.</p>
+}
+<h2>Your Cart</h2>
+@for (item of cartService.cartItems(); track item.id) {
+  <div>
+    <h3>{{ item.name }}</h3>
+    <p>Price: {{ item.price }}</p>
+    <p>Quantity: {{ item.quantity }}</p>
+  <button (click)="cartService.decreaseQuantity(item.id)">-</button>
+
+  <button (click)="cartService.increaseQuantity(item.id)">+</button>
+
+  <button (click)="cartService.removeItem(item.id)">Remove</button>
+  </div>
+}
+
+<p>Cart Count: {{ cartService.cartCount() }}</p>
+
+<p>Subtotal: {{ cartService.subTotal() }}</p>
+
+<p>Tax: {{ cartService.tax() }}</p>
+
+<p>Grand Total: {{ cartService.grandTotal() }}</p>
+
+<button (click)="cartService.clearCart()">
+
+  Clear Cart
+
+</button>
