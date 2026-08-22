@@ -1,4 +1,4 @@
-import { Component, inject } from "@angular/core";
+import { Component, inject, signal } from "@angular/core";
 import { CartService } from "../services/cart.service";
 
 @Component({
@@ -7,5 +7,4 @@ import { CartService } from "../services/cart.service";
 })
 export class CartComponent {
   cartService = inject(CartService);
-
 }

@@ -8,15 +8,26 @@ import { Product } from '../models/product.model';
 })
 export class CartService {
   cartItems = signal<CartItem[]>([]);
+  discount = signal(10);
+
   cartCount = computed(() =>
     this.cartItems().reduce((sum, item) => sum + item.quantity, 0));
 
   subTotal = computed(() =>
     this.cartItems().reduce((sum, item) => sum + item.price * item.quantity, 0));
 
-  tax = computed(() => this.subTotal() * 0.13);
+  discountAmount = computed(() => {
+    return this.subTotal() * (this.discount()/100);
+  });
 
-  grandTotal = computed(() => this.subTotal() + this.tax());
+  discountedSubtotal = computed(() => {
+    return this.subTotal() - this.discountAmount();
+  });
+
+
+  tax = computed(() => this.discountedSubtotal() * 0.13);
+
+  grandTotal = computed(() => this.discountedSubtotal() + this.tax());
 
   addToCart(product: Product): void {
     const existingItem = this.cartItems().find(item => item.id === product.id)
